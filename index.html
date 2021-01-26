@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!-- 영어로된사이트 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 사이트 이름 -->
+    <title>DIV WORLD</title>
+    <!-- 제작자 -->
+    <meta name="author" content="Div Report">
+    <!-- 설명 -->
+    <meta name="decription" content="The place reporting my developing record">
+    <!-- 반응형을 위한 뷰포트 정의 가로너비=디바이스, 초기화면 배율, 손가락으로 확대축소 개념 사용 x, 맥스멈스케일이라고 최대최소 확대축소 개념도 있다. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1">
+    <!-- 인터넷 익스플로러에서 렌더링 되는 방식. -->
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+
+    <!-- 참조 주소에서 ./나 ./가 생략돼 있으면 상대경로라고 할 수있다. -->
+    <!-- open graph. 카톡등에서 사이트 공유시를 생각해보자. 사이트 외부에 사이트정보를 전달할 수 있다 페이스북,카카오톡등에서 많이 활용. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="DIV WORLD">
+    <meta property="og:title" content="MAKE BETTER PERFORMANCE">
+    <meta property="og:discription" content="The place reporting my developing record">
+    <meta property="og:image" content="img/logo_divworld.png">
+    <meta property="og:url" content="https://DIVWORLD.com">
+
+    <!-- twitter card 트위터에서 많이 활용.-->
+    <meta property="twitter:card" content="summary">
+    <!-- 사이트이름 -->
+    <meta property="twitter:site" content="DIV WORLD">
+    <!-- 사이트제목 -->
+    <meta property="twitter:title" content="MAKE BETTER PERFORMANCE">
+    <!-- 설명 -->
+    <meta property="twitter:description" content="The place reporting my developing record">
+    <!-- 대표이미지 -->
+    <meta property="twitter:image" content="img/logo_divworld.png">
+    <!-- 주소 -->
+    <meta property="twitter:url" content="https://DIVWORLD.com">
+    
+    <!-- 외부에서 뭔가를 가져올때 태그  -->
+    <!-- 인터넷 익스플로러에서 파비콘 적용루트파일에 파비콘 이미지가 있으면 주소를 적지 않아도 사용하게된다 -->
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="icon" href="./favicon.png">
+    <!-- 스마트폰에서의 아이콘 -->
+    <link rel="apple-touch-icon" href="favicon.ico">
+    
+    <!-- reset.css 구글 검색 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+    <!-- 경량화된 폰트. 구글 폰트 (로보토) 커스터마이즈에서 크기 확인. -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<!-- 바디는 구조를 나타내는 태그이기 떄문에 스타일을 너무 많이 가지고 있는 것은 구조적으로 좋은 선택이 아니다. div container 활용 -->
+<!-- 
+ BEM
+ CSS 작명 규칙
+__ ~의 일부분 (ex:하위요소)
+-- ~의 상태 (ex:btn--success, btn--danger, btn--warning)
+ -  일반적인 작명  (ex: 단순 띄어쓰기)
+-->
+<div class="body__container">
+    <!-- 헤더태그 -->
+    <header class="section">
+        <!-- 콘텐츠들을 가운데로 모아주는 개념 -->
+        <div class="inner">
+
+            <div class="menu-group">
+                <div class="logo">
+                    <a href="#">DIV WORLD</a>
+                </div>
+                <div>
+                <!-- 항목이라는 단어가 나오면 list tag (ul ol li 등)을 이용해주는게 좋다 -->
+                <ul class="main-menu">
+                    <!-- ul 태그 아래 첫번째에는 무조건 자식으로 li 태그가 들어가야한다 -->
+                    <!-- a 태그. 누르면 주소로이동 -->
+                    <li><a href="#">주인장</a></li>
+                    <li><a href="#">비전</a></li>
+                    <li><a href="#">진행 프로젝트</a></li>
+                    <li><a href="#">완료 프로젝트</a></li>
+                </ul>
+                </div>
+            </div>
+
+            <div class="sub-group">
+                <div class="btn-group">
+                    <a href="#" class='btn sign-in'>sign in</a>
+                    <a href="#" class='btn btn--primary'>sign up</a>
+                </div>
+                <!-- 입력 받을때 method post로 입력받겠다. -->
+                <form id="search-form" method="POST" action="">
+                    <!-- 인풋, 입력받음 place홀더로 초기 고정 텍스트 
+                    검색을 받는 것이기 때문에 고유한 아이디들을 설정한다.-->
+                    <input type="text" id="search" class="input--text" placeholder="Search">
+                    <input type="submit" value="submit">
+                </form>
+                <div>
+                <ul class="sub-menu">
+                    <li><a href="#">유튜브</a></li>
+                    <li><a href="#">페이스북</a></li>
+                    <li><a href="#">인스타</a></li>
+                    <li><a href="#">이메일</a></li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- visual -->
+    <section class="section section--visual">
+        <div class="inner">
+
+            <div class="summary">
+                    <div class="summary__title">
+                        <!-- &nbsp; 는 띄어쓰기가 있으나 자연스럽게 
+                            하나의 단어처럼 묶여 줄바꿈을 제어한다 -->
+                        MAKING BETTER&nbsp;PERFORMANCE
+                    </div>
+                    <div class="summary__description">
+                        recording my developing record.
+                    </div>
+            </div>
+
+            <form id="sign-form" method="POST" action="">
+                <ul>
+                    <!-- 인풋은 기본적으로 인라인이고 수평으로 쌓인다 
+                    ul로 감싸준다 div 는 자주쓰는 태그이다보니 스타일
+                    꼬일 수 있으니까 그리고 전에 만들어준 인풋텍스트 클래스 사용-->
+                    <li><input type="text" class="input--text" placeholder="Pick a username"></li>
+                    <li><input type="email" class="input--text" placeholder="Your email address"></li>
+                    <li>
+                        <!-- 리스트 안에 같이 넣은뒤 리스트에만 마진바탐을 줘서 띄어쓰기한다. -->
+                        <input type="password" class="input--text" placeholder="Create a password">
+                        <!-- 문장이니까 p태그 사용 -->
+                        <p class="caption">Use at leaset one letter, one numeral, and seven characters.</p>
+                    </li>
+                    <li>
+                        <!-- button이나 input 대신 div를 적으면 단순 이미지용 버튼을 만들어 놓은 것 밖에 안된다. 
+                        button이나 input을 적으면 type submit 클릭시 폼태그안 모든 것들이 전송된다. -->
+                        <button type="submit" class="btn btn--primary">Sign up for Divworld</button>
+                        <p class="caption">By clicking "Sign up for DivWorld", you agree to our terms of service and privacy policy. we'll occasionally send you account replied emails.</p>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </section>
+
+    <!-- FEATURE -->
+    <section class="section section--feature">
+
+        <div class="summary">
+            <!-- div 대신 h2와 p태그 활용 -->
+            <div class="summary__title"></div>
+                Welcome my site for people
+            <div class="summary__description"></div>
+
+        </div>
+
+        <div class="video">
+            <!-- 반응형에 맞게 출력될 video ratio -->
+            <div class="video-ratio">
+                <iframe width="640" height="360" src="https://www.youtube.com/embed/pj9cNnT7PJs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        
+        <div class="tiles">
+            <div class="inner">
+
+                <ul>
+                    <li>
+                        <img src="img/tiles__1.jpg" alt = "sure">
+                        <h3>XXX</h3>
+                        <p>XXX</p>
+                    </li>
+                    <li>
+                        <img src="img/tiles__2.jpg" alt = "ture">
+                        <h3>XXX</h3>
+                        <p>XXX</p>
+                    </li>
+                    <li>
+                        <img src="img/tiles__3.jpg" alt = "uure">
+                        <h3>XXX</h3>
+                        <p>XXX</p>
+                    </li>
+                    <li>
+                        <img src="img/tiles__4.jpg" alt = "wure">
+                        <h3>XXX</h3>
+                        <p>XXX</p>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    
+    </section>
+</div>
+</body>
+</html>

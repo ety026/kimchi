@@ -1,0 +1,394 @@
+/* common */
+.body__container {
+    /* 로보토라는 폰트가 안나올때 고딕계열의 서체를 사용하겠다 */
+    font-family: 'Noto Sans KR', sans-serif;
+    /* 일반적인 사이트의 폰트는 16픽셀로 시작한다 */
+    font-size: 16px;
+    /* 폰트의 두께 */
+    font-weight: 400;
+    /* 글자의 색상 */
+    color:#333;
+}
+
+li{
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+/* search form */
+/* 아이디 선택자는 고유한 것이기 때문에 header라고 부모 선택자를 붙일 필요가 없다. */
+#search-form {
+    order: 1;
+    margin-right: 12px;
+}
+#search {
+    width:160px;
+    font-size:14px;
+}
+/* 서브밋 버튼 없애기
+대괄호는 속성선택자 + 는 형제선택자 */
+#search + [type="submit"] {
+    display: none;
+}
+
+/* btn */
+
+.btn {
+    height: 34px;
+    background: rgb(255,255,255) linear-gradient(to bottom, rgb(255,255,255),rgb(180, 180, 180));
+    border: 1px solid rgb(180,180,180);
+    border-radius: 4px;
+    color: rgb(0,0,0);
+    /* flex의 container는 block 요소와 같은 수직쌓임을 가지며
+    inline-flex의 container는 inline 요소와 같은 수평 쌓임을 가진다. 
+    안의 내용물은 모두 수평으로 쌓인다. */
+    display: inline-flex;
+    align-items: center;
+    /* 상하 0 좌우 12 */
+    padding: 0 12px;
+    font-size: 14px;
+    /* 400이 노멀 */
+    font-weight: 500;
+    /* 행간격 */
+    line-height: 1.5;
+    cursor: pointer;
+    /* 패딩이라던가 보더가 들어갔을때 요소자체가 커지는 것을 방지 */
+    box-sizing: border-box;
+    position: relative;
+}
+.btn:hover::before {
+    content: "";
+    /* 포지션 absoulute를 차지하기 전에 부모요소에서 릴러티브를 추가해야한다 */
+    position: absolute;
+    /* 부모요소를 기준으로 제자리 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 투명도 0으로 호버 */
+    background: rgba(0,0,0,.07);
+}
+
+.btn.btn--primary {
+    background: rgb(0,0,0) linear-gradient(to bottom, rgb(75, 75, 75), #000000 );
+    border: 1px solid rgb(0,0,0);
+    color: #fff;
+}
+
+.input--text {
+    height: 34px;
+    padding: 0 10px;
+    border: 1px solid gray;
+    border-radius:5px;
+    box-sizing: border-box;
+    outline:none;
+    /* x축에서 0 y축에서 1px 라디우스 블러 2px 스프레드 블러 0 inset을 앞에 붙이게 되면 
+    그림자가 박스 안쪽으로 들어가게된다 */
+    box-shadow: inset 0 1px 2px rgba(127, 127, 127, 0.075);
+    font-size: 16px;
+}
+
+/* 인풋 폼 눌렀을시 */
+.input--text:focus {
+    border-color:#0004ff;
+    box-shadow: inset 0 1px 2px rgba(127, 127, 127, 0.075)
+                 0 0px 5px rgba(0, 0, 0, 0.075);
+}
+/* 인풋 플레이스 홀더 style
+vender prefix (브라우저 업체별 접두사) 
+webkit 크롬 ms 엣지 moz 모질라 파이어폭스 o 오페라 */
+.input--text::-webkit-input-placeholder {color : rgb(0,0,0);}
+.input--text::-ms-input-placeholder {color : rgb(0,0,0);}
+.input--text::-moz-input-placeholder {color : rgb(0,0,0);}
+
+
+/* SUMMARY */
+.summary {
+
+}
+.summary__title {
+    font-size: 40px;
+    /* 글자두께 */
+    font-weight: 500;
+    /* 여기 컬러를 만들어 놓으면 하위요소에 뭔가를 더 넣을때 작업해야하는 양 많아짐 컬러 쓰지말자 */
+    /* 행간 */
+    line-height: 1.25;
+    margin-bottom: 18px;
+}
+.summary__description {
+    font-size: 30px;
+    font-weight: 300;
+    /* 문장이 들어가니까 비교적 더 넓게 */
+    line-height: 1.5;
+}
+/* section & inner */
+.section {
+    /* 꼭 이너 안에서만 뭘 만드는 게 아니기 떄문에 여기서도 걸릴 수 잇게 */
+    position:relative;
+}
+.section .inner {
+    max-width: 1200px;
+    /* 가운데 정렬 */
+    margin: 0 auto;
+    /* 패딩이나 마진 넣어도 요소가 크게 하지 않기 위해 */
+    box-sizing: border-box;
+    /* 앱솔루트는 요소의 위치가 정해진 부분까지 올라가게 돼있다.
+    하위요소에서 포지션 앱솔루트시 걸리게 하기위해 */
+    position: relative;
+
+}
+/* 헤더 */
+header {
+    border-bottom : 1px solid rgba(0,0,0,.75);
+    /* x 0 y 0 블러는 5픽셀 */
+    box-shadow: 0 0 5px rgba(0,0,0,.75);
+    background: #FFF;
+}
+header .inner {
+    /* height 의 디폴트는 auto 이고 header 에 78픽 셀 작성시 inner 에는 정해지지 않았기때문에 inner에 픽설크기 설정 */
+    /* 최대 폭은 980이고 상황에 따라 줄어들 수 있다 */
+    height:78px;
+    /* 가운데 정렬을 해주는 대표적인 속성 좌우에 auto 값을 넣어주는 것. 위아래는 상관없으니 0으로 */
+    /* 단 사용시 가로 사이즈가 정의 돼 있어야 한다. 위의 max width */
+
+    display: flex;   
+    Justify-content : space-between;
+}
+
+/* 이너 안에 있는 메뉴 그룹이지만 매번 치기 귀찮으니 후손선택자로서 이너는 생략할 수 있다. */
+header .menu-group {
+    display: flex;
+    /* 플렉스가 정의 돼 있을때 쓸 수 있는 수직 정렬 */
+    align-items: center;
+    /* 이너에 정의된 높에 78픽셀만큼 늘어나게 된다 */
+    height:100%;
+}
+header .logo {
+    /* 로고와 메뉴간의 공간 만들기 */
+    margin-right: 20px;
+}
+header .logo a{
+    /* a태그는 인라인 요소로서 범위를 가질 수 없기때문에 block 요소로 바꿔 활용한다 */
+    background: url("../img/logo.png");
+    width: 104px;
+    height: 24px;
+    display: block;
+    text-indent: -9999px;
+}
+header .logo a:hover{
+    /* a태그는 인라인 요소로서 범위를 가질 수 없기때문에 block 요소로 바꿔 활용한다 */
+    background: url("../img/logo_hov.png");
+}
+header .main-menu {
+    /* 수평정렬. 인라인 블록요소등 */
+    display: flex;
+}
+header .main-menu li a {
+    /* 리스트로 만들어진 메뉴들을 띄어쓰기 */
+    /* margin이 아닌 padding 으로 만들면 글씨 주위 영역을 만들 수 있고
+    블럭요소로 만들면 버튼처럼 활용할 수 있다. */
+    display: block;
+    padding: 10px;
+    color: #3c4146;
+}
+header .main-menu li a:hover {
+    /* 리스트로 만들어진 메뉴들을 띄어쓰기 */
+    /* margin이 아닌 padding 으로 만들면 글씨 주위 영역을 만들 수 있고
+    블럭요소로 만들면 버튼처럼 활용할 수 있다. */
+    color: #0004ff;
+}
+
+header .sub-group {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+header .btn-group {
+    order: 2;
+    /* 버튼이 인라인 요소로 정의돼 있기때문에, 인라인 요소를 두번 이상 쓸때 
+    엔터를 띄어쓰기로 인식한다. flex로 없앰 */
+    display: flex;
+}
+header .btn-group .sign-in {
+    margin-right: 4px;
+}
+header .sub-menu {
+    display: flex;
+    margin-right:10px
+}
+header .sub-menu li a{
+    padding: 8px;
+    display: block;
+    font-size: 13px;
+    color: #3c4146;
+}
+header .sub-menu li a:hover{
+    color:#0004ff;
+}
+
+/* visual */
+.section--visual {
+    background-image: url("../img/section.jpg");
+    /* 백그라운드 이미지를 반복하지 않겠다 */
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-size: cover;
+    background-color: rgba(0,0,0);
+}
+.section--visual::before {
+    /* before after과 꼭 함께 쓰이는 content는 가짜 속성이다.
+    html문서에 정보로 포함되지 않은 요소를 css에서 새롭게 
+    생성시켜준다. */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* right bottom 에 height, width 100%로 대체할 수도있다  */
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.3);
+}
+.section--visual .inner{
+    /* 위아래 여백. 좌우는 넣지 않음. */
+    padding: 160px 0;
+    display: flex;
+    Justify-content : space-between;
+}
+.section--visual .summary{
+    flex-basis:0;
+    flex-grow: 1;
+    /* flex grow shrink basis 디폴트는 
+    01auto이나 flex를 사용한 순간 basis 는 0으로 바뀐다/*/
+    flex: 1;
+    margin-right:90px;
+}
+
+.section--visual .summary__title {
+    /* 텍스트에 그림자 추가 박스에는 박스쉐도우 */
+    color: rgba(255,255,255);
+    text-shadow: 0 1px 1px rgba(0,0,0,.25)
+                 0 1px 25px rgba(0,0,0,.75);
+}
+.section--visual .summary__description{
+    color: rgba(255,255,255);
+    text-shadow: 0 1px 1px rgba(0,0,0,.25)
+                 0 1px 25px rgba(0,0,0,.75);
+}
+/* #sign-form */
+/* 버튼과 인풋텍스트가 100%로 정의 돼 있다. 
+가장 부모요소인 signform에서 넓이를 정의한다. */
+#sign-form {
+    width: 340px;
+}
+#sign-form li {
+    margin-bottom: 17px;
+}
+/* 리스트마다 마진바탐이 필요하지만 마지막요소에는 필요가 없다 */
+#sign-form li:last-child {
+    margin-bottom: 0;
+}
+#sign-form .input--text {
+    width:100%;
+    height:40px;
+}
+#sign-form .caption {
+    font-size: 12px;
+    margin-top: 5px;
+    color: rgba(255,255,255,.7);
+    line-height: 1.5;
+    text-align:center;
+}
+/* 타입선택자 [] 위의 부모요소에서 inline flex를 
+사용했기때문에 textalign이 아니라 justyfy로 중앙정렬한다. */
+#sign-form [type="submit"] {
+    width: 100%;
+    height: 62px;
+    padding: 0 25px;
+    font-size:20px;
+    justify-content: center;
+}
+/* Feature */
+.section--feature {
+    background: rgba(180,180,180,.1);
+    padding-top:66px;
+}
+.section--feature .summary {
+    margin: 0 auto;
+    max-width: 820px;
+    text-align:center;
+}
+.section--feature .video {
+    /* 650이하에선 자동으로 줄어들게 하고 싶어서 */
+    max-width: 650px;
+    margin: 50px auto;
+}
+.section--feature .video .video-ratio {
+    /* height는 높이를 픽스해버리는 개념이라 0으로 적는다 */
+    height: 0;
+    /* 500:x=16:9 x=56.25 500이 기준임. 16:9의 비율*/
+    padding-top: 56.25%;
+    position: relative;
+}
+.section--feature .video .video-ratio iframe {
+    /* 비디오 레이쇼 안에 집어 넣는다.  */
+    position: absolute;
+    top:10px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.section--feature .tiles {
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.section--feature .tiles ul {
+    /* flex로하면 수평정렬은 할 수 있지만 반응형, 
+    화면 크기가 줄어듬에 따라 칸수가 바뀌게 하기위해 grid 사용*/
+    /* 다만 그리드는 최신기술이라 구형 브라우저에서는 사용안댈수도 */
+    display: grid;
+    /* repeat에 들어가는 숫자를 상황에 따라 1,2,3으로 바꾸면 반응형에 따라 바뀐다 */
+    /* 프랙션이라는 단위. 각각 그냥 1fr 4번적을 수도 있으나 반복을 피하기 위해 
+    repeat 활용 */
+    grid-template-columns: repeat(4, 1fr);
+
+}
+
+.section--feature .tiles li {
+    /* 타일 정의 */
+    padding: 34px 24px;
+    text-align: center;
+    line-height: 1.5;
+    /* 오른쪽 선 */
+    border-right:1px solid #e5e5e5;
+    /* 요소에 비율 적용시 (width=25%)등 패딩이나 마진이 들어가 있다면
+    보더박스가 들어가 있지 않을시 멋대로 커질 수가 있다. */
+    box-sizing:border-box;
+}
+
+.section--feature .tiles li:last-child{
+    /* 마지막 요소에 대해 오른쪽 선 없앰 */
+    border-right: none;
+}
+
+.section--feature .tiles li img {
+    /* width 로하면 넘칠 위려가 있으나 max로 하면 넘치지 않고 안에서 조정된다 */
+    max-width: 100%;
+    /* 상 좌우 하 */
+    padding: 14px 10% 24px;
+    box-sizing: border-box;
+}
+
+.section--feature .tiles li h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.section--feature .tiles li p {
+    font-size: 14px;
+    color: #767676;
+}
